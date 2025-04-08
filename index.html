@@ -3,189 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fillip & Metehan Angebot</title>
+    <title>Angebot Anfragen</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #ffffff;
-            color: #333333;
+        * {
             margin: 0;
             padding: 0;
-            text-align: center;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
         }
 
         header {
+            text-align: center;
             background-color: #4CAF50;
-            color: white;
             padding: 20px;
-            font-size: 2.5em;
+            margin-bottom: 30px;
         }
 
-        .price {
-            font-size: 2.5em;
-            color: #FF5722;
-            margin-top: 20px;
+        header h1 {
+            color: white;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-form label {
+            margin-bottom: 8px;
             font-weight: bold;
         }
 
-        .product-description {
-            font-size: 1.3em;
-            margin-top: 30px;
+        .contact-form input {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
         }
 
-        .buy-button, .miet-button, .info-button {
-            background-color: #FF5722;
+        .contact-form button {
+            background-color: #4CAF50;
             color: white;
-            padding: 15px 30px;
-            font-size: 1.4em;
             border: none;
-            border-radius: 10px;
+            padding: 10px;
+            font-size: 16px;
             cursor: pointer;
-            margin-top: 20px;
+            border-radius: 4px;
         }
 
-        footer {
-            background-color: #333333;
-            color: white;
-            padding: 20px;
-            width: 100%;
-            position: relative;
-            margin-top: 50px;
-        }
-
-        .offer-box {
-            margin-top: 40px;
-            background-color: #f9f9f9;
-            padding: 30px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .offer-box h2 {
-            font-size: 2em;
-        }
-
-        .offer-box p {
-            font-size: 1.2em;
-        }
-
-        .offer-box button {
-            margin-top: 15px;
-        }
-
-        .form-container {
-            display: none;
-            margin-top: 20px;
-            background-color: #fff;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: left;
-        }
-
-        .info-content {
-            display: none;
-            margin-top: 20px;
-            background-color: #fff;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: left;
-        }
-
-        .steckbrief-content {
-            display: none;
-            margin-top: 20px;
-            background-color: #fff;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: left;
-        }
-
-        .steckbrief-list {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .steckbrief-list li {
-            font-size: 1.1em;
-            margin: 10px 0;
+        .contact-form button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
 
-<header>
-    Fillip & Metehan - Das ultimative Duo
-</header>
+    <header>
+        <h1>Angebot anfragen</h1>
+    </header>
 
-<!-- Fillip Angebot -->
-<div class="offer-box">
-    <h2>Fillip Angebot</h2>
-    <div class="price">
-        9,99 &euro; f&uuml;r Fillip
-    </div>
-    <div class="product-description">
-        <p>Erhalte Fillip f&uuml;r nur 9,99 &euro;! Hol dir den Technik-Genie, der das Unm&ouml;gliche m&ouml;glich macht!</p>
-    </div>
-    <!-- Buttons f&uuml;r Fillip -->
-    <button class="buy-button" onclick="toggleForm('fillip')">Fillip kaufen</button>
-    <button class="miet-button" onclick="toggleForm('miet-fillip')">Fillip mieten</button>
-    <button class="info-button" onclick="toggleInfo('fillip-info')">Mehr Infos zu Fillip</button>
-    <button class="info-button" onclick="toggleSteckbrief('fillip-steckbrief')">Steckbrief von Fillip</button> <!-- Steckbrief Button -->
-    <button class="info-button" onclick="window.location.href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'">Rick Roll</button> <!-- Rick Roll Button -->
+    <main>
+        <form action="submit_form.php" method="POST" class="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
 
-    <!-- Formular f&uuml;r Fillip -->
-    <div id="fillip-form" class="form-container">
-        <h3>Formular zum Kauf von Fillip</h3>
-        <form action="submit-buy" method="post">
-            <input type="text" name="name" placeholder="Ihr Name" required>
-            <input type="email" name="email" placeholder="Ihre E-Mail" required>
-            <input type="tel" name="phone" placeholder="Ihre Telefonnummer" required>
-            <button type="submit">Kaufen</button>
+            <label for="email">E-Mail:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Telefonnummer:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <button type="submit">Absenden</button>
         </form>
-    </div>
+    </main>
 
-    <!-- Formular f&uuml;r Miet-Option von Fillip -->
-    <div id="miet-fillip-form" class="form-container">
-        <h3>Formular zum Mieten von Fillip</h3>
-        <form action="submit-miet" method="post">
-            <input type="text" name="name" placeholder="Ihr Name" required>
-            <input type="email" name="email" placeholder="Ihre E-Mail" required>
-            <input type="tel" name="phone" placeholder="Ihre Telefonnummer" required>
-            <button type="submit">Mieten</button>
-        </form>
-    </div>
-
-    <!-- Info f&uuml;r Fillip -->
-    <div id="fillip-info" class="info-content">
-        <h3>Mehr Infos zu Fillip</h3>
-        <p>Fillip ist ein wahres Technik-Genie! Mit bombastischen F&auml;higkeiten in vielen Bereichen, besonders in der Technologie. Mit Fillip an deiner Seite wirst du die Welt der Technik in k&uuml;rzester Zeit erobern!</p>
-    </div>
-
-    <!-- Steckbrief f&uuml;r Fillip als Liste -->
-    <div id="fillip-steckbrief" class="steckbrief-content">
-        <h3>Steckbrief von Fillip</h3>
-        <ul class="steckbrief-list">
-            <li><strong>Name:</strong> Fillip</li>
-            <li><strong>Beruf:</strong> Technik-Genie, Softwareentwickler</li>
-            <li><strong>F&auml;higkeiten:</strong> Robotik, Softwareentwicklung, Probleml&ouml;sung</li>
-            <li><strong>Hobbys:</strong> Erfinden neuer Technologien, L&ouml;sungen f&uuml;r die Zukunft finden</li>
-            <li><strong>St&auml;rken:</strong> Kreativ, Innovativ, Technisch versiert</li>
-        </ul>
-    </div>
-</div>
-
-<!-- Fillip & Metehan Angebot -->
-<div class="offer-box">
-    <h2>Fillip & Metehan Angebot</h2>
-    <div class="price">
-        20,00 &euro; f&uuml;r Fillip & Metehan
-    </div>
-    <div class="product-description">
-        <p>Erhalte das epische Power-Duo Fillip & Metehan f&uuml;r nur 20,00 &euro;! Zwei Genies zum Preis von einem!</p>
+</body>
+</html>
